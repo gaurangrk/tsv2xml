@@ -34,7 +34,7 @@ echo "</resources>" >>$2
 
 if [ $# -eq 3 ] 
 then
-	mv $2 trackMe/src/main/res/values-$3/
+	mv $2 $RESPATH/values-$3/
 fi
 
 
