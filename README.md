@@ -31,15 +31,15 @@ USAGE:
 REQUIREMENTS:
 1. your translated straings XLS file should have the following format
 
-	|-------------------------------------------------------|
-	| Col1 (Name)           |   Col2 (Translated String)    |
-	|-------------------------------------------------------|
-	| app_name              |   My Exciting App             |
-	| hello_world           |   Hello World                 |
-	|        .              |        .                      |
-	|        .              |        .                      |
-	|        .              |        .                      |
-	|-------------------------------------------------------|
+	|----------------------------------------------------------------------------------------|
+	| Col1 (Name)           |   Col2 (Original String)      |   Col3 (Translated String)     |
+	|----------------------------------------------------------------------------------------|
+	| app_name              |   My Exciting Original App    |   My Exciting Translated App   |
+	| hello_world           |   Hello Original World        |   Hello Translated World       |
+	|        .              |        .                      |           .                    |
+	|        .              |        .                      |           .                    |
+	|        .              |        .                      |           .                    |
+	|----------------------------------------------------------------------------------------|
 
 2. Upload the XLS file to Google Spread sheets, and then download as Tab-Separated-Values
 
@@ -47,8 +47,8 @@ REQUIREMENTS:
 
 \<?xml version="1.0" encoding="utf-8"?><br>
 \<resources><br>
-\<string name="app_name">My Exciting App</string><br>
-\<string name="hello_world">Hello World</string><br>
+\<string name="app_name">My Exciting Translated App</string><br>
+\<string name="hello_world">Hello Translated World</string><br>
 	.<br>
 	.<br>
 	.<br>

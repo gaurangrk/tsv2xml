@@ -13,27 +13,28 @@ fi
 echo "<?xml version=\"1.0\" encoding=\"utf-8\"?>" >$2
 echo "<resources>" >>$2
 
-cat $1| while read p || [ -n "$p" ]; do
-	value=`echo "$p"| awk -F"\t" '{print ""$2""}' | grep '%.*%'`
+cat $1| while read line || [ -n "$line" ]; do
+	value=`echo "$line"| awk -F"\t" '{print ""$3""}' | grep '%.*%'`
 	if [ "$value" ] 
 	then
-		res=`echo "$p"| awk -F"\t" '{print "<string name=\""$1"\" formatted=\"false\">"$2"</string>"}' |sed 's/\r//g'`
+		res=`echo "$line"| awk -F"\t" '{print "<string name=\""$1"\" formatted=\"false\">"$3"</string>"}' |sed 's/\r//g'`
 	else
-		res=`echo "$p"| awk -F"\t" '{print "<string name=\""$1"\">"$2"</string>"}' |sed 's/\r//g'`
+		res=`echo "$line"| awk -F"\t" '{print "<string name=\""$1"\">"$3"</string>"}' |sed 's/\r//g'`
 	fi
 	echo $res >>$2 
 	echo $res | grep --color '%'
 done 
 
+#cat $1|awk -F'\t' '{print "<string name=\""$1"\">"$3"</string>"}' |sed 's/\r//g' >>$2
 echo "</resources>" >>$2
 
 # replace $RESPATH with the path of the res folder in your project
 #
-# make sure the values-xx folders have been created, where xx is the two letter langugae code for the particular language
+# make sure the values-xx folders are created, where xx is the two letter langugae code for the particular language
 
 if [ $# -eq 3 ] 
 then
-	mv $2 $RESPATH/values-$3/
+	mv $2 trackMe/src/main/res/values-$3/
 fi
 
 
